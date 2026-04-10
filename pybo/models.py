@@ -8,6 +8,7 @@ class Question(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
     user = db.relationship('User', backref=db.backref('question_set'))
     modify_date = db.Column(db.DateTime(), nullable=True)
+    image_path = db.Column(db.String(200), nullable=True)
 
 
 class Answer(db.Model):

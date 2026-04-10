@@ -12,6 +12,13 @@
         <div class="card my-3">
             <div class="card-body">
                 <div class="card-text" style="white-space: pre-line;">{{ question.content }}</div>
+<!--                첨부 이미지 보이기(있을 때만)-->
+                {% if question.image_path %}
+                <div class="my-3">
+                    <img src="{{ url_for('static', filename=question.image_path) }}" alt="첨부 이미지"
+                    style="max-width: 100%; height: auto;" class="img-thumbnail">
+                </div>
+                {% endif %}
                 <div class="d-flex justify-content-end">
                     {% if question.modify_date %}
                     <div class="badge bg-light text-dark p-2">
